@@ -33,19 +33,19 @@ public class BookService {
     public Iterable<BookDto> getBooks(String name, Long authorId) {
         if (name != null) {
             List<Book> booksByName = bookRepository.findByName(name);
-           return mapBookToBookDtoList(booksByName);
+           return mapBookListToBookDtoList(booksByName);
         } else if (authorId!=null){
             List<Book> byAuthorId = bookRepository.findByAuthorId(authorId);
-            return mapBookToBookDtoList(byAuthorId);
+            return mapBookListToBookDtoList(byAuthorId);
         } else {
             Iterable<Book> allBooks = bookRepository.findAll();
             List<Book> booksList = new ArrayList<>();
             allBooks.forEach(book -> booksList.add(book));
-            return mapBookToBookDtoList(booksList);
+            return mapBookListToBookDtoList(booksList);
         }
     }
 
-    private Iterable<BookDto> mapBookToBookDtoList(List<Book> books){
+    private Iterable<BookDto> mapBookListToBookDtoList(List<Book> books){
         List<BookDto> booksDtoList = books
                 .stream()
                 .map(book -> new BookDto(book))

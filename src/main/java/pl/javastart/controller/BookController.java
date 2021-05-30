@@ -65,6 +65,9 @@ public class BookController {
 
     @DeleteMapping(value = "/books/{id}")
     public BookDto deleteBookById(@PathVariable("id") Long id) {
+        /**
+         *  Method to delete book by id from database.
+         */
         return bookService.deleteBookById(id);
     }
 

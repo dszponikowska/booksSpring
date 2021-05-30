@@ -77,7 +77,6 @@ public class BookService {
         }
     }
 
-
     public BookDto updateBook(BookDto bookDto, Long id) {
         Optional<Book> byId = bookRepository.findById(id);
         Book foundBook = byId.get();

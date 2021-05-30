@@ -5,7 +5,7 @@ import pl.javastart.dto.AuthorDto;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "author")
 public class Author {
 
     @Id
